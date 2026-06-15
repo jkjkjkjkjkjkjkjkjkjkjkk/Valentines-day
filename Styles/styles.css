@@ -4,6 +4,10 @@ body {
     align-items: center;
     height: 100vh;
     background-color: #CBE6EF;
+    /* 核心增补属性，塞进你原本的 body { ... } 里面 */
+    overflow: hidden;
+    position: relative;
+    touch-action: none;
 }
 
 /* Position the "No" button absolutely within body */
@@ -12,7 +16,14 @@ body {
     margin-left: 150px;
     transition: 0.5s;
     border: 2px solid #ffffff;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Add a 2px horizontal, 2px vertical, 5px blur, and 0.3 opacity shadow */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    /* Add a 2px horizontal, 2px vertical, 5px blur, and 0.3 opacity shadow */
+    -webkit-tap-highlight-color: transparent;
+    /* 👈 核心：防止变白 */
+    -webkit-user-select: none;
+    user-select: none;
+    transition: none !important;
+    /* 👈 核心：去掉动画，让它直接瞬移 */
 }
 
 #yesButton {
@@ -65,6 +76,8 @@ body {
 .gif_container {
     display: flex;
     justify-content: center;
-    align-items: flex-end; /* Align to the bottom */
-    margin-left: 20px; /* Adjusted for consistency */
+    align-items: flex-end;
+    /* Align to the bottom */
+    margin-left: 20px;
+    /* Adjusted for consistency */
 }
